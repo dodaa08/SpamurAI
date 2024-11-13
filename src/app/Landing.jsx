@@ -3,8 +3,6 @@ import Header from '../components/Header'
 import { Mailbox } from 'lucide-react';
 import land from "../imgs/land.mp4"
 
-
-
 function Landing() {
     return (
        <>
@@ -23,7 +21,7 @@ function Landing() {
                         <button className='bg-blue-400 py-3 w-72 mt-5 ml-28 rounded-xl text-black hover:bg-blue-300 transition duration-200'>Log-In to use our free version..</button>
             </div>
                      <div className='flex'>
-                     <video src={land} autoPlay loop muted className='h-96 rounded-xl ml-40  mt-10'></video>
+                     <video src={land} autoPlay loop muted className='h-96 rounded-xl ml-40 mt-10'></video>
                      </div>
                 </div>
             </div>

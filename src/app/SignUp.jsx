@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
+
 const api = axios.create({
     baseURL: 'http://localhost:3000', // This sets a base URL for all requests
 });
@@ -11,7 +12,7 @@ function SignUp() {
 
     const SignUp = async () => {
         try {
-            const response = await api.post("/signup", {
+            const response = await api.post("http://localhost:3000/signup",{
                 email: Email,
                 password: Password
             });
