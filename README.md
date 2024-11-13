@@ -1,4 +1,4 @@
-# Project Name
+SpamurAI
 
 A simple sign-up interface with subscription features and crypto-based transactions, built with React, Next.js, and Axios. This project will integrate Aptos Move contracts for secure crypto payments in future subscription models.
 
