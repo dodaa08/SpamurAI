@@ -21,6 +21,10 @@ A simple sign-up interface with subscription features and crypto-based transacti
    ```bash
    git clone https://github.com/your-username/project-name.git
    cd project-name
+
+
+
+
 Install Dependencies:
 
 bash
@@ -31,7 +35,10 @@ Run the Development Server:
 bash
 Copy code
 npm run dev
-The application should now be running at http://localhost:3000.
+
+
+
+
 
 Usage
 Sign-Up: Enter an email and password, then click Sign-Up. User information will be sent to the backend (a placeholder /signup endpoint for now).
@@ -49,6 +56,19 @@ project-name/
 │   └── pages/                 # Next.js pages
 ├── README.md                  # Project documentation
 └── package.json               # Project dependencies and scripts
+Future Development
+Subscription Model with Aptos Move Contracts
+Objective: Integrate a subscription-based model where users can sign up for premium features using cryptocurrency.
+Implementation: Aptos Move contracts will handle payments on the blockchain, ensuring secure, decentralized, and transparent transactions.
+Cryptocurrency Payment Integration
+Supported Tokens: (Specify tokens like APT or USDC here, as applicable)
+Transaction Processing: Payments will be processed via smart contracts, eliminating the need for intermediaries and enabling global access.
+
+
+
+
+
+
 Future Development
 Subscription Model with Aptos Move Contracts
 Objective: Integrate a subscription-based model where users can sign up for premium features using cryptocurrency.
@@ -77,12 +97,4 @@ This project is licensed under the MIT License.
 arduino
 Copy code
 
-This markdown provides a clear, organized README for easy setup, usage instructions, and a roadmap for future development.
-
-
-
-
-
-
-
-
+This markdown provides a clear, organized README for easy setup, usage instructions, and a roadmap for fu
