@@ -12,10 +12,11 @@ function SignUp() {
 
     const SignUp = async () => {
         try {
-            const response = await api.post("http://localhost:3000/signup",{
+            const response = await api.post("/signup", {
                 email: Email,
                 password: Password
             });
+            
 
             console.log(response.data);
             alert("User Created Successfully");

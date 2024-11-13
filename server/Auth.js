@@ -20,7 +20,7 @@ connect();
 
 app.use(express.json());
 app.use(cors({
-    origin: 'http://localhost:5173/signup', 
+    origin: 'http://localhost:5173', 
     methods: ['GET', 'POST'],
     allowedHeaders: ['Content-Type', 'token']
 }));

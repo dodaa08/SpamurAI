@@ -1,8 +1,83 @@
-# React + Vite
+AI Cold Email Writer and Sender
+AI Cold Email Writer and Sender is a web application designed to help users create and send personalized cold emails efficiently. Built with a combination of AI and blockchain, this application uses natural language processing to generate effective email content and leverages blockchain technology to manage subscriptions with cryptocurrency payments.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Features
+AI-Powered Email Writing: Utilizes Hugging Face's NLP models to generate professional, engaging, and tailored email content.
+Automated Email Sending: Quickly send cold emails directly from the platform.
+Subscription-Based Model: Built-in subscription model using the Aptos blockchain for secure payments via cryptocurrency.
+Database Management: MongoDB handles user information, email content, and subscription details.
+Backend and API: Developed with Node.js to manage user requests, email generation, and subscription verification.
+Tech Stack
+Frontend: React.js
+Backend: Node.js, Express
+Database: MongoDB
+AI Services: Hugging Face API
+Blockchain: Aptos Blockchain (Move smart contracts for subscription payments)
+Getting Started
+To run this application locally, follow these steps:
 
-Currently, two official plugins are available:
+Prerequisites
+Ensure you have the following installed:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Node.js
+MongoDB
+React
+Hugging Face API key
+Aptos wallet
+Installation
+Clone the Repository:
+bash
+
+Copy
+git clone https://github.com/dodaa08/SpamurAI.git
+cd SpamurAI
+Install Backend Dependencies:
+bash
+
+Copy
+cd backend
+npm install
+Install Frontend Dependencies:
+bash
+
+Copy
+cd ../frontend
+npm install
+Set Environment Variables: Create a .env file in the backend and frontend directories with the following details: Backend:
+plaintext
+
+Copy
+MONGODB_URI=<your-mongodb-connection-string>
+HUGGINGFACE_API_KEY=<your-huggingface-api-key>
+Frontend:
+plaintext
+
+Copy
+REACT_APP_API_URL=<your-backend-api-url>
+Run the Application: Backend:
+bash
+
+Copy
+cd backend
+npm start
+Frontend:
+bash
+
+Copy
+cd ../frontend
+npm start
+Using the Application
+Sign Up: Register and log in to access the platform.
+Subscription: Choose a subscription plan and pay with cryptocurrency via the Aptos blockchain.
+Generate Emails: Use the AI-powered writer to generate cold email content tailored to your needs.
+Send Emails: Send emails directly from the platform and track email status.
+Blockchain Integration
+This project integrates with the Aptos blockchain to handle subscription payments securely. Users can subscribe to the platform by making payments in cryptocurrency, which the smart contract verifies to enable premium access to the AI email generator and sender.
+
+Smart Contract
+The Move contract manages subscriptions, verifies payments, and controls user access to premium features based on their subscription status.
+
+Future Enhancements
+Blockchain-Based Email Tracking: Integrate a feature to verify that emails were sent and opened, possibly storing these records on-chain for added transparency.
+NFT Access Tiers: Introduce NFT-based access for different subscription levels. Each NFT could unlock additional features or offer varying usage limits.
+Referral Rewards: Blockchain-based referral program for existing subscribers to earn rewards by inviting new users to the platform.
