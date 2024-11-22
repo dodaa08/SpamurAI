@@ -1,15 +1,22 @@
 const mongoose = require('mongoose');
 
 
-const user = new mongoose.Schema({
-    email: {type : String , unique : true, required : true},
-    password: String
+const userSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: true
+    },
+    email: {
+        type: String,
+        required: true,
+        unique: true
+    },
+    hashedPassword: {
+        type: String,
+        required: true
+    }
 });
 
-  
-  // Create the model for the settings collection
-  
-  const User = mongoose.model('User', user);
-  
+const User = mongoose.model('User', userSchema);
 
 module.exports = User;

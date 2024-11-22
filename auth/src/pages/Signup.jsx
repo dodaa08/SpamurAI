@@ -1,30 +1,45 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
-function Signup() {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [error, setError] = useState('');
+    function Signup() {
+        const [email, setEmail] = useState('');
+        const [password, setPassword] = useState('');
+        const [error, setError] = useState('');
+        const [name, setName] = useState('');
+      
+        const navigate = useNavigate();
 
-    const signup = async () => {
-        if (!email || !password) {
-            setError("Please fill in all fields.");
-            return;
-        }
-        setError(''); // Clear previous errors
-        try {
-            await axios.post('http://localhost:3000/signup', { email, password });
-            alert("User Created");
-        } catch (err) {
-            console.error("Error during signup:", err);
-            setError(err.response?.data || "An error occurred during signup.");
-        }
-    };
+        const signup = async () => {
+            if (!email || !password || !name) {
+                setError("Please fill in all fields.");
+                return;
+            }
+            setError(''); // Clear previous errors
+    
+            try {
+                const response = await axios.post('http://localhost:3000/signup', { name, email, password });
+                alert(response.data); // This alerts the server response (e.g., "User Created")
+             
+                navigate('/'); // Navigate to another page after successful signup
+            } catch (err) {
+                console.error("Error during signup:", err);
+                // Check for response data errors and display them
+                setError(err.response?.data?.errors?.[0]?.message || "An error occurred during signup.");
+            }
+        };
 
     return (
         <div className="flex justify-center items-center h-screen bg-black">
             <div className="flex flex-col gap-5">
                 <h1 className="text-3xl font-mono text-center text-white">Sign Up</h1>
+                <input
+                    type="text"
+                    placeholder="Name"
+                    className="w-72 h-10 rounded-xl pl-5"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                />
                 <input
                     type="text"
                     placeholder="Email"

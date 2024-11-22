@@ -2,23 +2,23 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-
 function Signin() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const navigate = useNavigate();
 
-    const signup = async () => {
+    const signin = async () => {
        try{
-        const response = await axios.post('http://localhost:3000/auth/signin', {
+        const response = await axios.post('http://localhost:3000/signin', {
             email,
             password
         });
         localStorage.setItem('token', response.data.token);
         console.log(response.data);
+        alert('Signin Successful');
         setError('');
-        navigate('/write');
+        navigate('/');
        }
        catch(error){
               setError(error.response.data.error);
@@ -45,7 +45,7 @@ function Signin() {
                 />
                 <button
                     className="bg-blue-400 py-3 w-72 rounded-xl text-black hover:bg-blue-300 transition duration-200"
-                    onClick={signup}
+                    onClick={signin}
                 >
                     Sign In
                 </button>
