@@ -151,7 +151,6 @@ const signin = async (req, res) => {
     }
     }
 
-
     const write = async (req, res) => {
         const { type } = req.body;
     
@@ -213,16 +212,11 @@ const signin = async (req, res) => {
             res.status(500).send("An error occurred during validation");
         }
     };
-    
-
-    
-    
-
 
 app.post("/signup", signup);
 app.post("/signin", signin);
-app.post("/write",auth, write);
-app.post("/email",auth, sendMail);
+app.post("/write", write);
+app.post("/email", sendMail);
 app.post("/validate", validate);
 
 

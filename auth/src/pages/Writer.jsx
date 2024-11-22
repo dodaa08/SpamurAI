@@ -7,29 +7,14 @@ function Writer() {
     const [email, setEmail] = React.useState('');
     const [loading, setLoading] = React.useState(true);
 
-
-
     const generateContent = async () => {
         const token = localStorage.getItem('token');
         if (!token) {
             console.error('No token found');
             return;
         }
-        try{
-            const response = await axios.post('http://10.12.27.244:3000/write', {type : prompt});
-            setContent(response.data.messages);
-            console.log(response.data.messages);
-        }
-        catch(Error){
-            console.error(Error);
-        }
+        try { const response = await axios.post('http://10.12.27.244:3000/write', { type: prompt }); setContent(response.data.messages); console.log(response.data.messages); } catch (error) { if (error.response) { console.error("Error response:", error.response.data); } else if (error.request) { console.error("Error request:", error.request); } else { console.error("Error message:", error.message); } }
     };
-
-
-
-
-
-
 
     const sendEmail = async () => {
         const token = localStorage.getItem('token');
@@ -42,8 +27,6 @@ function Writer() {
             const response = await axios.post('http://localhost:3000/email', {
                 content: content,
                 email: email
-            }, {
-                headers: "token"
             });
 
             console.log(response.data.messages);
@@ -74,21 +57,25 @@ function Writer() {
                         </div>
                         
                     ) : (
-                        <div className="flex-grow flex justify-center items-center">
-                            <div className='bg-gray-500 py-10 px-10 w-max h-max'>
+                        <>
+                        
+                        <div className=" flex justify-center items-center">
+                            <div className=' py-10 px-10 w-max h-max'>
                                 <p className="text-center text-white font-mono text-xl">{content}</p>
                             </div>
-                            <div className='mt-5 flex flex-col space-y-5'>
+                            
+                        </div>
+                        <div className='flex justify-center gap-1'>
                                 <input
                                     type="text"
                                     placeholder='Receiver Email'
-                                    className='rounded-l py-5 px-10 font-mono'
+                                    className='rounded-l py-3 px-10 font-mono rounded-r'
                                     value={email}
                                     onChange={(e) => { setEmail(e.target.value) }}
                                 />
-                                <button onClick={sendEmail} className='bg-green-400 py-2 px-5 rounded-l font-mono'>Send</button>
+                                <button onClick={sendEmail} className='bg-green-400 py-2 text-l px-5 rounded-l hover:bg-green-200 transition duration-200 font-mono'>Send</button>
                             </div>
-                        </div>
+                                    </>
                     )
                 }
 
@@ -97,7 +84,7 @@ function Writer() {
                     <input
                         type="text"
                         placeholder="Prompt Details"
-                        className="rounded-l py-3 w-96 font-mono"
+                        className="rounded-l py-3 px-2 w-96 font-mono"
                         value={prompt}
                         onChange={(e) => setPrompt(e.target.value)}
                     />
