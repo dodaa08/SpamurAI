@@ -16,6 +16,7 @@ function Writer() {
         try { const response = await axios.post('http://10.12.27.244:3000/write', { type: prompt }); setContent(response.data.messages); console.log(response.data.messages); } catch (error) { if (error.response) { console.error("Error response:", error.response.data); } else if (error.request) { console.error("Error request:", error.request); } else { console.error("Error message:", error.message); } }
     };
 
+
     const sendEmail = async () => {
         const token = localStorage.getItem('token');
         if (!token) {
